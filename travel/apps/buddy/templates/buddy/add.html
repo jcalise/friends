@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Travel Buddy - Add a Trip</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'buddy/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+    <div class="container">
+            <div class="register">
+                <h2>Add a Trip <span class="float-right"><a href="{%url 'main' %}">Home</a> | <a href="{%url 'logout'%}">Logout</a></span></h2>
+                <form action="{%url 'create' %}" method="post" name="addtrip">
+                        {% csrf_token %}
+                        <label for="dest"> Destination:</label>
+                        <input type="text" name="dest" id="dest">
+            
+                        <label for="desc">Description:</label>
+                        <input type="text" name="desc" id="desc">
+
+                        <label for="depart">Departure Date:</label>
+                        <input type="date" name="depart" id="depart">
+
+                        <label for="ret">Return Date:</label>
+                        <input type="date" name="ret" id="ret">
+
+                        <input type="submit" value="Create">
+                    </form>
+            </div><!-- end register -->
+
+            {% if messages %}
+                {% for message in messages %}
+                <p{% if message.tags %} class="message"{% endif %}>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        
+    </div> <!-- end container -->
+    
+</body>
+</html>

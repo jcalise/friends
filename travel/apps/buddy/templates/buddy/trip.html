@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Travel Buddy - Trip Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'buddy/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+    <div class="container">
+        <h3>{{trip.destination}} <span class="float-right"><a href="{%url 'main' %}">Home</a> | <a href="{%url 'logout'%}">Logout</a></span></h3>
+        <p>Planned by: {{trip.created_by.name}}</p>
+        <p>Description: {{trip.description}}</p>
+        <p>Departure Date: {{trip.depart_date}}</p>
+        <p>Return Date: {{trip.return_date}}</p>
+
+        <h3>Other users joining the trip:</h3>
+        {% for traveler in trip.travelers.all%}
+            <p>{{traveler.name}}</p>
+        {% endfor %}
+        
+        
+    </div> <!-- end container -->
+    
+</body>
+</html>
