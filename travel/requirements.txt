@@ -1,6 +1,6 @@
 bcrypt==3.1.4
 cffi==1.11.2
-Django==4.2.24
+Django==4.2.25
 pycparser==2.18
 python-dateutil==2.6.1
 pytz==2017.2
